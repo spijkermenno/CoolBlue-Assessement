@@ -47,6 +47,7 @@ Kotlin · Compose · Material 3 · Retrofit · Gson · Coil · AndroidX
 
 - **Koin** for DI so I don’t hand-roll factories
 - **UI tests** with the **robot pattern**: a colleague pitched that recently and I actually want to try it properly
+- The UI is almost entirely Material and it looks cheap. I could lose myself in finetuning UI so i chose to focus on different tasks and left the Ui for what it is. Would upgrade the UI to look like CoolBlue if i had more time.
 
 ---
 
