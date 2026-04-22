@@ -1,13 +1,17 @@
 package nl.mennospijker.coolblueassessment.ui
 
 import android.util.Log
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -26,11 +30,19 @@ fun SearchScreen(modifier: Modifier = Modifier, viewModel: ProductViewModel) {
     val uiState = viewModel.uiState.collectAsState()
     var query by remember { mutableStateOf("") }
 
-    Column(modifier = modifier.fillMaxSize()) {
+    Column(
+        modifier = modifier
+            .fillMaxSize()
+            .padding(16.dp)
+    ) {
         OutlinedTextField(
+            modifier = Modifier.fillMaxWidth(),
             value = query, onValueChange = {
                 query = it
                 viewModel.performSearch(query)
+            },
+            label = {
+                Text("Hier kun je zoeken!")
             }
         )
 
@@ -41,17 +53,26 @@ fun SearchScreen(modifier: Modifier = Modifier, viewModel: ProductViewModel) {
                 )
 
                 is ProductUiState.Error -> {
-                    Text("Error! ${state.message}")
-                    Log.d("TAG", "SearchScreen: ${state.message}")
+                    Text("Er is een fout opgetreden! ${state.message}")
                 }
+
                 is ProductUiState.Success -> {
                     if (state.products.isEmpty()) {
-                        Text("No products found")
+                        Box(Modifier.fillMaxSize(), Alignment.Center) {
+                            Text("Geen producten gevonden")
+                        }
                     } else {
                         LazyColumn(
                             modifier = Modifier.fillMaxSize(),
                             contentPadding = PaddingValues(bottom = 16.dp)
                         ) {
+                            item {
+                                Text(
+                                    "${state.products.count()} producten gevonden",
+                                    Modifier.padding(8.dp)
+                                )
+                            }
+
                             items(state.products, key = { it.id }) { product ->
                                 ProductDisplay(product = product)
                             }
@@ -59,7 +80,11 @@ fun SearchScreen(modifier: Modifier = Modifier, viewModel: ProductViewModel) {
                     }
                 }
 
-                ProductUiState.Empty -> Text("Start a search by entering a query.")
+                ProductUiState.Empty -> {
+                    Box(Modifier.fillMaxSize(), Alignment.Center) {
+                        Text("Zoekresultaten worden weergegeven tijdens het typen...")
+                    }
+                }
             }
         }
     }
