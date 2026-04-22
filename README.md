@@ -1,24 +1,63 @@
-Hi there CoolBlue developers!
+# Coolblue assessment
 
-What you asked of me:
-Kotlin -> Done
-Compose -> Done
-Online Repo -> If you found this it works :)
-Design patterns -> I would have liked CLEAN Architecture but that was to much work haha. 
-I used MVVM, Repository/interface, and singleton for the Retrofit stuff.
-Tests -> I wrote Unit tests for the mappers and ..., i would have liked to create UI tests but setting that up takes so much time.
-Open source components -> Retrofit for the API calls (Also doubted about KTOR but chose Retrofit since that is what i use on my current job.) and Coil for image loading. 
-Images -> Yes, via Coil.
-AI Assistance -> Auto complete stuff from Android Studio (Which works pretty bad imho). 
+Hey Coolblue team 👋
 
+Quick read on what you asked for vs what I shipped, and how the project hangs together.
 
-here is what i did for this assessment.
-Used Cursor to fix some typo issues i made in project setup that would took me a while to fix everywhere. Also used Cursor to add dependencies in the TOML file and .gradle.kts.
+---
 
-This is what i uses AI for:
-Fix typo made durring pro
+## What you asked for
 
+| Requirement | How it went |
+|-------------|------------|
+| **Kotlin** | Yep |
+| **Compose** | Yep |
+| **Online repo** | If you’re reading this, it’s online 🙂 |
+| **Design patterns** | I’d have *loved* full CLEAN + modules but that felt like a lot for this box — so I went **MVVM**, **Repository + interface**, and a **singleton-style** `Retrofit` holder. Mappers for DTO → domain, usual stuff |
+| **Tests** | **Unit tests** for the mappers (and friends). **UI tests** — honestly I skipped them; wiring up a proper Compose/robot thing would’ve eaten a big chunk of time |
+| **Open source** | **Retrofit** (API) — I also looked at Ktor but stuck with Retrofit because it’s what I use at work. **Gson**, **Coil** for images, **AndroidX / Compose / Material 3** |
+| **Images** | Yes, via **Coil** |
+| **AI tools** | See below. I still get what’s in the repo and I’m happy to talk through it |
 
-What i would have done if i had more time:
-Use Koin for dependency injection
-Create UI Tests via the Robot Pattern. (Some colleague pitched it last month and i want to try it)
+---
+
+## Architecture (the short version)
+
+- **MVVM** — Compose + `ViewModel` + `StateFlow`
+- **Repository** — interface + `ProductRepositoryImpl` in front of the API
+- **Mappers** — API models → domain models
+- **Not** a big CLEAN / multi-module split this round — that would be the “if I had another week” version
+
+---
+
+## Tech stack
+
+Kotlin · Compose · Material 3 · Retrofit · Gson · Coil · AndroidX
+
+---
+
+## AI usage (being straight about it)
+
+- **Android Studio autocomplete** — sure, I use it; quality is… hit or miss imho
+- **Cursor** — helped fix typos / package-Gradle mess from early setup, and nudged the `libs.versions.toml` + `build.gradle.kts` dependency stuff. I still read and own the code; ask me anything in the interview
+
+---
+
+## If I had more time
+
+- **Koin** (or something) for DI so I don’t hand-roll factories
+- **UI tests** with the **robot pattern** — a colleague pitched that recently and I actually want to try it properly
+
+---
+
+## Build & test
+
+You’ll need a normal Android dev setup (SDK / Android Studio).
+
+```bash
+./gradlew assembleDebug
+```
+
+```bash
+./gradlew testDebugUnitTest
+```
