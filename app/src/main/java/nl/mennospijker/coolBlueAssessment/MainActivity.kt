@@ -1,4 +1,4 @@
-package nl.mennospijker.CoolBlueAssessement
+package nl.mennospijker.coolBlueAssessment
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -11,14 +11,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import nl.mennospijker.CoolBlueAssessement.ui.theme.CoolBlueAssessementTheme
+import nl.mennospijker.coolBlueAssessment.ui.theme.CoolBlueAssessmentTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            CoolBlueAssessementTheme {
+            CoolBlueAssessmentTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
                         name = "Android",
@@ -41,7 +41,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    CoolBlueAssessementTheme {
+    CoolBlueAssessmentTheme {
         Greeting("Android")
     }
 }

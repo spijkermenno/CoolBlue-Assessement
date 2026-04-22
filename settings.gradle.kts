@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "CoolBlue Assessement"
+rootProject.name = "CoolBlue Assessment"
 include(":app")

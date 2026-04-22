@@ -4,13 +4,13 @@ plugins {
 }
 
 android {
-    namespace = "nl.mennospijker.CoolBlueAssessement"
+    namespace = "nl.mennospijker.CoolBlueAssessment"
     compileSdk {
         version = release(36)
     }
 
     defaultConfig {
-        applicationId = "nl.mennospijker.CoolBlueAssessement"
+        applicationId = "nl.mennospijker.CoolBlueAssessment"
         minSdk = 29
         targetSdk = 36
         versionCode = 1

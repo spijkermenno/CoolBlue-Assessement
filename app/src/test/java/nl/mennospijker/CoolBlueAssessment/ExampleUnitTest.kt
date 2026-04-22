@@ -1,4 +1,4 @@
-package nl.mennospijker.CoolBlueAssessement
+package nl.mennospijker.coolBlueAssessment
 
 import org.junit.Test
 

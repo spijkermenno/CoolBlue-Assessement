@@ -1,4 +1,4 @@
-package nl.mennospijker.CoolBlueAssessement.ui.theme
+package nl.mennospijker.coolBlueAssessment.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
