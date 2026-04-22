@@ -1,4 +1,4 @@
-package nl.mennospijker.coolBlueAssessment.data
+package nl.mennospijker.coolblueassessment.data
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

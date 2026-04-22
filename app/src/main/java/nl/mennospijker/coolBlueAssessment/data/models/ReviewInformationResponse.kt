@@ -1,4 +1,4 @@
-package nl.mennospijker.coolBlueAssessment.data.models
+package nl.mennospijker.coolblueassessment.data.models
 
 import com.google.gson.annotations.SerializedName
 

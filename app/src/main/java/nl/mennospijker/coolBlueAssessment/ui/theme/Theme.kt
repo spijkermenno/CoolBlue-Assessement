@@ -1,4 +1,4 @@
-package nl.mennospijker.coolBlueAssessment.ui.theme
+package nl.mennospijker.coolblueassessment.ui.theme
 
 import android.app.Activity
 import android.os.Build
